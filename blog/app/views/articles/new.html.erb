@@ -1,3 +1,6 @@
+<%= link_to 'Go back', articles_path %>
+<%# calling form_with which is a form builder %>
+<%# which defines a scope :article %>
 <%= form_with scope: :article, url: articles_path, local: true do |form| %>
   <p>
     <%= form.label :title %><br>
