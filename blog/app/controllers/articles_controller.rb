@@ -8,6 +8,12 @@ class ArticlesController < ApplicationController
   end
 
   def new
+    @article = Article.new
+  end
+
+  def edit
+    # same as show, because we are finding the article to edit
+    @article = Article.find(params[:id])
   end
 
   def create
@@ -16,8 +22,25 @@ class ArticlesController < ApplicationController
 
     @article = Article.new(article_params)
 
-    @article.save
-    redirect_to @article
+    if @article.save
+      redirect_to @article
+    else
+      render :new
+      # redirect_to new_article_url
+    end
+  end
+
+  def update
+    @article = Article.find(params[:id])
+
+    if @article.update(article_params)
+      redirect_to @article
+    else
+      render "edit"
+    end
+  end
+
+  def destroy
   end
 
   private
