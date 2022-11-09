@@ -4,5 +4,6 @@ class Article < ApplicationRecord
   # validates :text, presence: true
 
   # associating with comment model
-  has_many :comments
+  # what dependent: :destroy does is deletes comments if an article is deleted
+  has_many :comments, dependent: :destroy
 end
