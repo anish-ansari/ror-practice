@@ -1,6 +1,14 @@
 class UsersController < ApplicationController
+  # restrict users that are not logged in
+  # if users are logged in then only direct to show page
+  before_action :logged_in_user, only: [:show]
+
   def show
     @user = User.find(params[:id])
+    # this way if an unauthorized user tries to access other user's data then their value is set to nil
+    if !current_user?(@user)
+      @user = nil
+    end
   end
 
   def new
@@ -10,6 +18,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      log_in @user
       flash[:success] = "Welcome to the app"
       redirect_to @user
     else
