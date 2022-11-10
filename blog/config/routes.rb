@@ -1,8 +1,15 @@
 Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
+  # route for signup page
   get "/signup", to: "users#new"
   resources :users
+
+  # routes for login and logout
+  get "/login", to: "sessions#new"
+  post "/login", to: "sessions#create"
+  delete "/logout", to: "sessions#destroy"
+
   # adding a resource called articles
   resources :articles do
     # adding a sub resource comments, since comment belongs_to articles
