@@ -1,0 +1,11 @@
+<%# partial file to display nav bar %>
+<nav class="navbar mb-2">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <%= link_to "Articles", controller: 'articles' %>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+      <li><%= link_to "Sign up", signup_path %></li>
+    </ul>
+  </div>
+</nav>
