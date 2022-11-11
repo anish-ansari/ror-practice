@@ -2,7 +2,11 @@
 <nav class="navbar mb-2">
   <div class="container-fluid">
     <div class="navbar-header">
-      <%= link_to "Articles", articles_path, class: "mx-2" %>
+      <% if logged_in? %>
+        <%= link_to 'My Articles', articles_path, class: "mx-2" %>
+      <% else %>
+        <%= link_to "Articles", articles_path, class: "mx-2" %>
+      <% end %>
     </div>
     <% if logged_in? %>
       <ul class="nav navbar-right ">
