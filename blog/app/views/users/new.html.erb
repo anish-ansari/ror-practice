@@ -2,6 +2,18 @@
 <div class="row">
   <div class="col-md-4 offset-4">
     <%= form_with model: @user, local: true, data: { turbo: false } do |f| %>
+      <% if @user.errors.any? %>
+        <div id="error_explanation">
+          <div class="alert alert-danger">
+            The form contains <%= pluralize(@user.errors.count, "error") %>.
+          </div>
+          <ul>
+            <% @user.errors.full_messages.each do |msg| %>
+              <li class='text-danger'><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
       <%= render 'shared/error_messages' %>
       <%= f.label :name %>
       <%= f.text_field :name, class: 'mb-1 form-control' %>
