@@ -1,12 +1,12 @@
 class User < ApplicationRecord
+  # bcrypt method
+  has_secure_password
+
   # associating with article model
   has_many :articles
 
   # associating with comment model
   has_many :comments
-
-  # bcrypt method
-  has_secure_password
 
   # a callback to convert email to lowecase before it is saved to the database
   before_save :downcase_email
