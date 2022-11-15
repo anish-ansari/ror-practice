@@ -5,11 +5,11 @@ module SessionsHelper
   end
 
   def current_user
-    if session[:user_id]
-      # ||= says to set @current_user to User.find_by(id: session[:user_id]) if it in nil, false or undefined
-      # otherwise set it to @current_user i.e. do nothing
-      @current_user ||= User.find_by(id: session[:user_id])
-    end
+    return unless session[:user_id]
+
+    # ||= says to set @current_user to User.find_by(id: session[:user_id]) if it in nil, false or undefined
+    # otherwise set it to @current_user i.e. do nothing
+    @current_user ||= User.find_by(id: session[:user_id])
   end
 
   def logged_in?
