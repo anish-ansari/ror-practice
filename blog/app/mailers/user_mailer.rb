@@ -5,7 +5,7 @@ class UserMailer < ApplicationMailer
   def welcome_email
     @user = params[:user]
     @url = 'http://127.0.0.1:3000/login'
+    attachments.inline['bmo.jpg'] = File.read(Rails.root.join('public/bmo.jpg'))
     mail(to: @user.email, subject: 'Welcome to my website')
-    # attachments.inline['bmo.jpg'] = File.read("../assets/images/bmo.jpg")
   end
 end
