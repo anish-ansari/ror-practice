@@ -29,3 +29,15 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+/db/schema.rb
+
+/test/fixtures/companies.yml
+/test/fixtures/company_people.yml
+/test/fixtures/countries.yml
+/test/fixtures/people.yml
+
+/test/models/company_person_test.rb
+/test/models/company_test.rb
+/test/models/country_test.rb
+/test/models/person_test.rb
