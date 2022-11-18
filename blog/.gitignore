@@ -32,3 +32,6 @@
 
 /db/schema.rb
 /.byebug_history
+
+/test/mailers/user_mailer_test.rb
+/public/bmo.jpg
