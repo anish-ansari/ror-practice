@@ -22,6 +22,8 @@
       <%= f.password_field :password, class: 'mb-1 form-control' %>
       <%= f.label :password_confirmation, "Confirmation" %>
       <%= f.password_field :password_confirmation, class: 'mb-1 form-control' %>
+      <%= f.label "Upload an image" %>
+      <%= f.file_field :avatar %>
       <%= f.submit "Create my account", class: "mt-2 btn btn-primary" %>
     <% end %>
   </div>
