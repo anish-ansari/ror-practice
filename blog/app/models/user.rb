@@ -14,6 +14,8 @@ class User < ApplicationRecord
   # a callback to convert email to lowecase before it is saved to the database
   before_save :downcase_email
 
+  before_commit :send_email
+
   # name validator
   validates :name, presence: true
   # regex for valid email
@@ -43,5 +45,10 @@ class User < ApplicationRecord
     return if acceptable_types.include?(avatar.blob.content_type)
 
     errors.add(:avatar, 'must be a JPEG/JPG, PNG or GIF')
+  end
+
+  def send_email
+    # performs job whenever the queuing system is free
+    SendNotificationsJob.perform_later(id)
   end
 end
