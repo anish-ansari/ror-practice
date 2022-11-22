@@ -36,3 +36,7 @@
 /node_modules
 .byebug_history
 /db/schema.rb
+/app/helpers/quotes_helper.rb
+/test/controllers/quotes_controller_test.rb
+/test/models/quote_test.rb
+
